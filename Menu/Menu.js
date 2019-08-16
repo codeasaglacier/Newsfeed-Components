@@ -27,8 +27,31 @@ let menuItems = [
   
 */
 
+const menu = data => {
+  const burger = document.createElement('div')
+  const toppings = document.createElement('ul')
 
+  burger.classList.add('menu')
+  burger.appendChild(toppings)
 
+  const menuItems = data.map(item => {
+    const eachItem = document.createElement('li')
+    eachItem.textContent = item
+    return eachItem
+  })
+
+  for (let menuItem of menuItems) {
+    toppings.appendChild(menuItem)
+  }
+
+  document.querySelector('.menu-button').addEventListener('click', () => {
+    burger.classList.toggle('menu--open')
+  })
+
+  return burger
+}
+
+document.querySelector('.header').appendChild(menu(menuItems))
 
 
 

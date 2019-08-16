@@ -111,46 +111,35 @@ data.forEach(data => {
 
 function makePolka(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const panel = document.createElement('div')
-  const panelBar = document.createElement('div')
-  const panelTitle = document.createElement('h3')
-  const panelDate = document.createElement('div')
-  const buttonPanel = document.createElement('div')
-  const buttonOpen = document.createElement('button')
-  const buttonClosed = document.createElement('button')
-  const panelFstP = document.createElement('div')
-  const panelSndP = document.createElement('div')
-  const panelThrP = document.createElement('div')
-
-
-  panel.appendChild(panelBar)
+  const panelTitle = document.createElement('h2')
+  const panelDate = document.createElement('p')
+  const panelFstP = document.createElement('p')
+  const panelSndP = document.createElement('p')
+  const panelThrP = document.createElement('p')
+  const button = document.createElement('span')
+ 
   panel.appendChild(panelTitle)
   panel.appendChild(panelDate)
   panel.appendChild(panelFstP)
   panel.appendChild(panelSndP)
   panel.appendChild(panelThrP)
-  panel.appendChild(buttonPanel)
-  panel.appendChild(buttonOpen)
-  panel.appendChild(buttonClosed)
+  panel.appendChild(button)
 
-  panel.classList.add('panel')
-  panelBar.classList.add('panelBar')
-  buttonPanel.classList.add('panelBtns')
-  buttonOpen.classList.add('openBtn')
-  buttonClosed.classList.add('closeBtn', 'hideBtn')
-  panelFstP.classList.add('firstParagraph')
-  panelSndP.classList.add('secondaragraph')
-  panelThrP.classList.add('thirdParagraph')
+  panel.classList.add('article')
+  panelTitle.classList.add('h2')
+  panelDate.classList.add('date')
+  button.classList.add('expandButton')
     
-  
-
-  buttonOpen.textContent = "open"
-  buttonClosed.textContent = "close"
+  panelTitle.textContent = title
+  panelDate.textContent = date
   panelFstP.textContent = firstParagraph
   panelSndP.textContent = secondParagraph
   panelThrP.textContent = thirdParagraph
-  panelDate.textContent = date
-  panelTitle.textContent = title
-
+  button.textContent = 'Expand'
+  
+  button.addEventListener('click', () => {
+    panel.classList.toggle('article-open')
+  })
 
   return panel  
   }
