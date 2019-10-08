@@ -112,42 +112,34 @@ data.forEach(data => {
 function makePolka(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const panel = document.createElement('div')
   const panelTitle = document.createElement('h2')
-  const panelButtons = document.createElement('div')
-  const buttonOpen = document.createElement('button')
-  const buttonClose = document.createElement('button')
-  const panelContent = document.createElement('div')
   const panelDate = document.createElement('p')
   const panelFstP = document.createElement('p')
   const panelSndP = document.createElement('p')
   const panelThrP = document.createElement('p')
+  const button = document.createElement('span')
  
   panel.appendChild(panelTitle)
-  panel.appendChild(panelContent)
-  panel.appendChild(panelButtons)
-  panelButtons.appendChild(buttonOpen)
-  panelButtons.appendChild(buttonClose)
-  panelContent.appendChild(panelDate)
-  panelContent.appendChild(panelFstP)
-  panelContent.appendChild(panelSndP)
-  panelContent.appendChild(panelThrP)
+  panel.appendChild(panelDate)
+  panel.appendChild(panelFstP)
+  panel.appendChild(panelSndP)
+  panel.appendChild(panelThrP)
+  panel.appendChild(button)
 
-  panel.classList.add('articles')
+  panel.classList.add('article')
   panelTitle.classList.add('h2')
-  panelButtons.classList.add('expandButton')
-  buttonOpen.classList.add('article-open')
-  buttonClose.classList.add('close')
   panelDate.classList.add('date')
-  panelContent.classList.add('article')
+  button.classList.add('expandButton')
     
   panelTitle.textContent = title
   panelDate.textContent = date
   panelFstP.textContent = firstParagraph
   panelSndP.textContent = secondParagraph
   panelThrP.textContent = thirdParagraph
-  button.textContent = 'Expand'
+  button.textContent = 'Article'
   
   button.addEventListener('click', () => {
     panel.classList.toggle('article-open')
+    
   })
 
   return panel  
