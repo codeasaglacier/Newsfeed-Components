@@ -85,6 +85,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'New Article',
+    date: 'Today, This year',
+    firstParagraph: `New Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `New Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `New Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -116,28 +132,41 @@ function makePolka(title, date, firstParagraph, secondParagraph, thirdParagraph)
   const panelFstP = document.createElement('p')
   const panelSndP = document.createElement('p')
   const panelThrP = document.createElement('p')
-  const button = document.createElement('span')
+  const buttonBox = document.createElement('div')
+  const buttonOpen = document.createElement('button')
+  const buttonClose = document.createElement('button')
  
   panel.appendChild(panelTitle)
   panel.appendChild(panelDate)
   panel.appendChild(panelFstP)
   panel.appendChild(panelSndP)
   panel.appendChild(panelThrP)
-  panel.appendChild(button)
+  panel.appendChild(buttonBox)
+  buttonBox.appendChild(buttonOpen)
+  buttonBox.appendChild(buttonClose)
 
   panel.classList.add('article')
   panelTitle.classList.add('h2')
   panelDate.classList.add('date')
-  button.classList.add('expandButton')
+  buttonOpen.classList.add('expandButton')
+  buttonClose.classList.add('expandButton', 'hide-btn')
     
+  const open = '\u25bc'
+  const close = '\u25b2'
+
   panelTitle.textContent = title
   panelDate.textContent = date
   panelFstP.textContent = firstParagraph
   panelSndP.textContent = secondParagraph
   panelThrP.textContent = thirdParagraph
-  button.textContent = 'Article'
+  buttonOpen.textContent = open
+  buttonClose.textContent = close
+
   
-  button.addEventListener('click', () => {
+  buttonBox.addEventListener('click', () => {
+    buttonOpen.classList.toggle('hide-btn')
+    buttonClose.classList.toggle('hide-btn')
+
     panel.classList.toggle('article-open')
     
   })
