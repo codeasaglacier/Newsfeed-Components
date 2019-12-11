@@ -128,37 +128,39 @@ data.forEach(data => {
 
 function makeArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const article = document.createElement('div')
-  const title = document.createElement('h2')
-  const date = document.createElement('p')
+  const articleTitle = document.createElement('h2')
+  const articleDate = document.createElement('p')
   const firstP = document.createElement('p')
   const secondP = document.createElement('p')
   const thirdP = document.createElement('p')
   const button = document.createElement('span')
+  console.log(article)
 
-  article.appendChild(title)
-  article.appendChild(date)
+  article.appendChild(articleTitle)
+  article.appendChild(articleDate)
   article.appendChild(firstP)
   article.appendChild(secondP)
   article.appendChild(thirdP)
   article.appendChild(button)
 
   article.classList.add('article')
-  title.classList.add('h2')
-  date.classList.add('date')
-  button.classList.add('expandButton', 'close')
+  articleTitle.classList.add('h2')
+  articleDate.classList.add('date')
+  button.classList.add('expandButton')
 
-  title.textContent = title
-  date.textContent = date
+  articleTitle.textContent = title
+  articleDate.textContent = date
   firstP.textContent = firstParagraph
   secondP.textContent = secondParagraph
   thirdP.textContent = thirdParagraph
-  button.textContent = Open/Close
+  button.textContent = 'Open/Close'
 
   button.addEventListener('click', event => {
-    button.classList.toggle('close')
+    article.classList.toggle('close')
+    article.classList.toggle('article-open')
   })
 
-
+  return article
 }
 
 // const weirdAl = document.querySelector('.articles')
