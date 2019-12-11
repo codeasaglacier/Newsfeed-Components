@@ -1,19 +1,11 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
-let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
-];
 
 /* 
   Step 1: Write a function that will create a menu component as seen below:
   <div class="menu">
     <ul>
-      {each menu item as a list item}
+    {each menu item as a list item}
     </ul>
   </div>
   Pass the function an array as it's only argument.
@@ -25,8 +17,16 @@ let menuItems = [
   Step 5: return the menu component.
   Step 6: add the menu component to the DOM.
   
-*/
-
+  */
+ let menuItems = [
+   'Students',
+   'Faculty',
+   "What's New",
+   'Tech Trends',
+   'Music',
+   'Log Out'
+ ];
+ 
 const menu = data => {
   const burger = document.createElement('div')
   const toppings = document.createElement('ul')

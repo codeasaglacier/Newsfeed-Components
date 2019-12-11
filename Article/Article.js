@@ -120,59 +120,100 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 */
 
-const weirdAl = document.querySelector('.articles')
+const articles = document.querySelector('.articles')
+
 data.forEach(data => {
-  weirdAl.appendChild(makePolka(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
-});
+  articles.appendChild(makeArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
 
-function makePolka(title, date, firstParagraph, secondParagraph, thirdParagraph) {
-  const panel = document.createElement('div')
-  const panelTitle = document.createElement('h2')
-  const panelDate = document.createElement('p')
-  const panelFstP = document.createElement('p')
-  const panelSndP = document.createElement('p')
-  const panelThrP = document.createElement('p')
-  const buttonBox = document.createElement('div')
-  const buttonOpen = document.createElement('button')
-  const buttonClose = document.createElement('button')
- 
-  panel.appendChild(panelTitle)
-  panel.appendChild(panelDate)
-  panel.appendChild(panelFstP)
-  panel.appendChild(panelSndP)
-  panel.appendChild(panelThrP)
-  panel.appendChild(buttonBox)
-  buttonBox.appendChild(buttonOpen)
-  buttonBox.appendChild(buttonClose)
+function makeArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const firstP = document.createElement('p')
+  const secondP = document.createElement('p')
+  const thirdP = document.createElement('p')
+  const button = document.createElement('span')
 
-  panel.classList.add('article')
-  panelTitle.classList.add('h2')
-  panelDate.classList.add('date')
-  buttonOpen.classList.add('expandButton')
-  buttonClose.classList.add('expandButton', 'hide-btn')
-    
-  const open = '\u25bc'
-  const close = '\u25b2'
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(firstP)
+  article.appendChild(secondP)
+  article.appendChild(thirdP)
+  article.appendChild(button)
 
-  panelTitle.textContent = title
-  panelDate.textContent = date
-  panelFstP.textContent = firstParagraph
-  panelSndP.textContent = secondParagraph
-  panelThrP.textContent = thirdParagraph
-  buttonOpen.textContent = open
-  buttonClose.textContent = close
+  article.classList.add('article')
+  title.classList.add('h2')
+  date.classList.add('date')
+  button.classList.add('expandButton', 'close')
 
-  
-  buttonBox.addEventListener('click', () => {
-    buttonOpen.classList.toggle('hide-btn')
-    buttonClose.classList.toggle('hide-btn')
+  title.textContent = title
+  date.textContent = date
+  firstP.textContent = firstParagraph
+  secondP.textContent = secondParagraph
+  thirdP.textContent = thirdParagraph
+  button.textContent = Open/Close
 
-    panel.classList.toggle('article-open')
-    
+  button.addEventListener('click', event => {
+    button.classList.toggle('close')
   })
 
-  return panel  
-  }
+
+}
+
+// const weirdAl = document.querySelector('.articles')
+// data.forEach(data => {
+//   weirdAl.appendChild(makePolka(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+// });
+
+// function makePolka(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+//   const panel = document.createElement('div')
+//   const panelTitle = document.createElement('h2')
+//   const panelDate = document.createElement('p')
+//   const panelFstP = document.createElement('p')
+//   const panelSndP = document.createElement('p')
+//   const panelThrP = document.createElement('p')
+//   const buttonBox = document.createElement('div')
+//   const buttonOpen = document.createElement('button')
+//   const buttonClose = document.createElement('button')
+ 
+//   panel.appendChild(panelTitle)
+//   panel.appendChild(panelDate)
+//   panel.appendChild(panelFstP)
+//   panel.appendChild(panelSndP)
+//   panel.appendChild(panelThrP)
+//   panel.appendChild(buttonBox)
+//   buttonBox.appendChild(buttonOpen)
+//   buttonBox.appendChild(buttonClose)
+
+//   panel.classList.add('article')
+//   panelTitle.classList.add('h2')
+//   panelDate.classList.add('date')
+//   buttonOpen.classList.add('expandButton')
+//   buttonClose.classList.add('expandButton', 'hide-btn')
+    
+//   const open = '\u25bc'
+//   const close = '\u25b2'
+
+//   panelTitle.textContent = title
+//   panelDate.textContent = date
+//   panelFstP.textContent = firstParagraph
+//   panelSndP.textContent = secondParagraph
+//   panelThrP.textContent = thirdParagraph
+//   buttonOpen.textContent = open
+//   buttonClose.textContent = close
+
+  
+//   buttonBox.addEventListener('click', () => {
+//     buttonOpen.classList.toggle('hide-btn')
+//     buttonClose.classList.toggle('hide-btn')
+
+//     panel.classList.toggle('article-open')
+    
+//   })
+
+//   return panel  
+//   }
 
 
 

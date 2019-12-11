@@ -106,10 +106,6 @@
   height: 400px;
   overflow: auto;
 }
-.hide-btn {
-  display:none;
-}
-
 html,
 body {
   margin: 0;
