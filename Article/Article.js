@@ -156,7 +156,6 @@ function makeArticle(title, date, firstParagraph, secondParagraph, thirdParagrap
   button.textContent = 'Open/Close'
 
   button.addEventListener('click', event => {
-    article.classList.toggle('close')
     article.classList.toggle('article-open')
   })
 
