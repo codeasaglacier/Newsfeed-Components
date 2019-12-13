@@ -27,20 +27,20 @@
    'Log Out'
  ];
  
-const menu = data => {
+const menu = arr => {
   const burger = document.createElement('div')
   const toppings = document.createElement('ul')
 
   burger.classList.add('menu')
   burger.appendChild(toppings)
 
-  const menuItems = data.map(item => {
+  const menuItems = arr.map(item => {
     const eachItem = document.createElement('li')
     eachItem.textContent = item
     return eachItem
   })
 
-  for (let menuItem of menuItems) {
+  for (const menuItem of menuItems) {
     toppings.appendChild(menuItem)
   }
 
